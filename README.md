@@ -2,6 +2,10 @@
 A dockerfile to build a ARM cross-compiler for Tauri(React Typescript Template).
 
 
+## Setup
+
+    $ yarn
+
 ## Installation
 
 *Please build with at least Docker version*.
