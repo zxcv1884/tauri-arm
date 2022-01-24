@@ -1,0 +1,57 @@
+{
+    "name": "tauri",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@emotion/react": "^11.7.1",
+        "@emotion/styled": "^11.6.0",
+        "@mui/material": "^5.3.0",
+        "@tauri-apps/api": "^1.0.0-beta.8",
+        "@tauri-apps/cli": "^1.0.0-beta.10",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^12.0.0",
+        "@testing-library/user-event": "^13.2.1",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.7.13",
+        "@types/react": "^17.0.20",
+        "@types/react-dom": "^17.0.9",
+        "concurrently": "^7.0.0",
+        "cross-env": "^7.0.3",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scripts": "5.0.0",
+        "typescript": "^4.4.2",
+        "web-vitals": "^2.1.0"
+    },
+    "scripts": {
+        "init:armv7": "docker build . -t rust_cross_compile/armv7 -f Dockerfile.armv7 --rm",
+        "init:arm64": "docker build . -t rust_cross_compile/arm64 -f Dockerfile.arm64 --rm",
+        "dev": "concurrently --kill-others \"npm run dev:react\" \"npm run dev:tauri\"",
+        "dev:react": "BROWSER=none react-scripts start",
+        "dev:tauri": "cross-env RUST_DEBUG=1 NODE_TLS_REJECT_UNAUTHORIZED=0 tauri dev",
+        "build": "react-scripts build && tauri build",
+        "build:armv7": "react-scripts build && docker run --rm -ti -v `pwd`:/app rust_cross_compile/armv7",
+        "build:arm64": "react-scripts build && docker run --rm -ti -v `pwd`:/app rust_cross_compile/arm64",
+        "build:react": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
