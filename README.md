@@ -1,5 +1,5 @@
 # `tauri-arm`
-A dockerfile to build a ARM cross-compiler for Tauri
+A dockerfile to build a ARM cross-compiler for Tauri(React Typescript Template).
 
 
 ## Installation
