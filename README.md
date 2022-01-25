@@ -17,17 +17,10 @@ A dockerfile to build a ARM cross-compiler for Tauri(React Typescript Template).
 
     $ yarn init:armv7
     
-    or
-    
-    $ docker build . -t rust_cross_compile/armv7 -f Dockerfile.armv7
 
 #### Build ARM64 Docker image
 
     $ yarn init:arm64
-    
-    or
-    
-    $ docker build . -t rust_cross_compile/arm64 -f Dockerfile.arm64
 
 
 ## Development
@@ -45,14 +38,8 @@ A dockerfile to build a ARM cross-compiler for Tauri(React Typescript Template).
 
     $ yarn build:armv7
     
-    or
-    
-    $ yarn build:react && docker run --rm -ti -v `pwd`:/app rust_cross_compile/armv7
 
 #### Build for ARM64(.deb)
 
     $ yarn build:arm64
     
-    or
-    
-    $ yarn build:react && docker run --rm -ti -v `pwd`:/app rust_cross_compile/armv64
