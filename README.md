@@ -35,11 +35,12 @@ A dockerfile to build a ARM cross-compiler for Tauri(React Typescript Template).
     $ yarn build
 
 #### Build for ARMv7(.deb)
+###### *Note for Windows: Change file package.json \`pwd\` to %cd%(CMD)*
 
     $ yarn build:armv7
     
 
 #### Build for ARM64(.deb)
-
+###### *Note for Windows: Change file package.json \`pwd\` to %cd%(CMD)*
     $ yarn build:arm64
     
